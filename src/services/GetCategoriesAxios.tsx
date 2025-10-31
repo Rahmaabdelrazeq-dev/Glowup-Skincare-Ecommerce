@@ -10,12 +10,18 @@ interface Product {
 
 export async function fetchProducts(): Promise<string[]> {
   const response = await axios.get<{ data: Product[] }>(
-  "https://68f278b4b36f9750deecbed2.mockapi.io/data/api/products"
-);
-const allBrands = response.data.map((item: Product) => item.category);
-const uniqueBrands = [...new Set(allBrands)];
+    "https://68f278b4b36f9750deecbed2.mockapi.io/data/api/products"
+  );
+
+  // ✅ تعديل map
+  const allBrands = response.data.data.map((item: Product) => item.category);
+
+  // ✅ TypeScript يريد ضمان string[]
+  const uniqueBrands: string[] = [...new Set(allBrands)];
+
   return uniqueBrands;
 }
+
 export function useProductsQuery() {
   return useQuery<string[]>({
     queryKey: ["categories"],
