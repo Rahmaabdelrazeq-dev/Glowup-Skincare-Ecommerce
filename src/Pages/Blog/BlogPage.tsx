@@ -166,10 +166,149 @@ const BlogPage = () => {
           </section>
         </div>
 
-        {/* Scoped CSS */}
-        <style jsx>{`
-          ...  << نفس الـ CSS بدون أي تغيير >>
-        `}</style>
+        {/* CSS */}
+        <style>
+          {`
+        :root {
+          --color-primary: #7c6f63;
+          --color-muted: #806c54;
+          --color-bg: #f6f4ed;
+          --color-card-bg: #fdfbf7;
+          --color-tip-title: #6d5e4f;
+          --color-tip-description: #8a7d6e;
+        }
+
+        .blog-page {
+          background: linear-gradient(
+            120deg,
+            var(--color-bg) 75%,
+            #e9e3da 100%
+          );
+          min-height: 100vh;
+        }
+        .myth-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2.2rem;
+          margin-top: 2rem;
+        }
+        .myth-card {
+          background: var(--color-card-bg);
+          border-radius: 1.7rem;
+          min-height: 180px;
+          box-shadow: 0 2px 16px 0 rgba(120, 110, 95, 0.12);
+          padding: 2.1rem 1.3rem 1.6rem;
+          cursor: pointer;
+          transition: transform 0.18s, box-shadow 0.21s;
+          position: relative;
+          outline: none;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .myth-card:hover,
+        .myth-card:focus {
+          transform: translateY(-3px) scale(1.03);
+          box-shadow: 0 10px 32px 0 rgba(120, 110, 95, 0.15);
+        }
+        .label-myth,
+        .label-truth {
+          font-family: "Montserrat", sans-serif;
+          letter-spacing: 0.08em;
+          font-weight: 700;
+          font-size: 0.92rem;
+          margin-bottom: 0.5em;
+        }
+        .label-myth {
+          color: #ba9880;
+        }
+        .label-truth {
+          color: #6db687;
+        }
+        .myth-text {
+          color: var(--color-primary);
+          font-size: 1.15rem;
+          font-weight: 600;
+          min-height: 54px;
+          margin-bottom: 0.6em;
+        }
+        .truth-text {
+          color: #4b5b56;
+          font-size: 1.08rem;
+          font-weight: 500;
+          margin-bottom: 0.64em;
+        }
+        .tap-reveal {
+          color: #b89b7d;
+          font-size: 0.95rem;
+          margin-top: 1.2em;
+          display: block;
+        }
+        .tip {
+          font-size: 0.98rem;
+          color: #977b5b;
+          background: #f7eee5;
+          border-radius: 0.9rem;
+          padding: 0.66em 0.97em;
+          margin-bottom: 0.5em;
+          display: inline-block;
+        }
+        .learn-more {
+          color: #6c675f;
+          text-decoration: underline;
+          font-size: 0.95rem;
+          margin-top: 0.2em;
+          display: block;
+        }
+        .tips-section {
+          max-width: 1100px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .tips-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 2.5rem;
+        }
+        .tip-card {
+          background: white;
+          border-radius: 1.8rem;
+          box-shadow: 0 3px 12px rgba(156, 141, 127, 0.16);
+          padding: 2rem;
+          transition: box-shadow 0.3s ease;
+          cursor: default;
+        }
+        .tip-card:hover {
+          box-shadow: 0 10px 36px rgba(156, 141, 127, 0.27);
+        }
+        .tip-title {
+          margin-bottom: 0.5rem;
+          font-size: 1.25rem;
+        }
+        .tip-description {
+          font-weight: 400;
+          color: var(--color-tip-description);
+          font-size: 1rem;
+        }
+        .section-title {
+          font-size: 1.5rem;
+          font-weight: 600;
+          letter-spacing: 0.01em;
+          color: var(--color-primary);
+        }
+        @media (max-width: 650px) {
+          .myth-grid {
+            gap: 1.2rem;
+          }
+          .myth-card {
+            padding: 1.3rem 0.7rem;
+          }
+          .tips-grid {
+            gap: 1.5rem;
+          }
+        }
+          `}
+        </style>
       </main>
     </>
   );
